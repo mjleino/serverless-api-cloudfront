@@ -6,6 +6,10 @@ const fs = require('fs');
 
 class ServerlessApiCloudFrontPlugin {
   constructor(serverless, options) {
+    if (!this.getConfig('enabled', true)) {
+      return
+    }
+
     this.serverless = serverless;
     this.options = options;
 
